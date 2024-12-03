@@ -28,6 +28,18 @@
     <string name="profile_name">Your Name</string>
     <string name="profile_email">Your E-mail</string>
     <string name="profile_motivation">Your Motivation</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_signin">Sign in</string>
+    <string name="title_signup">Sign up</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="title_confirm_password">Confirm Password</string>
+    <string name="email_hint_text">Enter your email</string>
+    <string name="password_hint_text">Enter your password</string>
+    <string name="confirm_password_hint_text">Confirm your password</string>
+    <string name="register">Dont Have Account?  Sign up!</string>
+    <string name="have_account">Already Have Account? Sign In!</string>
+    <string name="button_text_signin">Sign in</string>
+    <string name="button_text_signup">Sign up</string>
+    <string name="default_web_client_id">426524788512-ptidrr78h8amj0efsipr9oaa2lugs9fc.apps.googleusercontent.com</string>
 </resources>

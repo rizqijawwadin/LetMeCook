@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "426524788512",
+    "firebase_url": "https://letmecook-c06a2-default-rtdb.firebaseio.com",
+    "project_id": "letmecook-c06a2",
+    "storage_bucket": "letmecook-c06a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426524788512:android:7af00ad562893099b73945",
+        "android_client_info": {
+          "package_name": "com.bangkit.letmecook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426524788512-ptidrr78h8amj0efsipr9oaa2lugs9fc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaQ_n9f1L7m39XGw2OZyJUBBNk8ye3fGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426524788512-ptidrr78h8amj0efsipr9oaa2lugs9fc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
