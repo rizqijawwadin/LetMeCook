@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Warna teks ketika ditekan -->
-    <item android:state_pressed="true" android:color="@android:color/white" />
-    <!-- Warna teks default -->
-    <item android:color="@color/purple_500" />
-</selector>
