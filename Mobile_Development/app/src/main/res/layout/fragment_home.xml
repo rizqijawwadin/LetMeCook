@@ -12,26 +12,14 @@
         android:id="@+id/tv_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Hi, Welcome"
-        android:textSize="24sp"
-        android:textColor="@color/black"
+        android:textSize="28dp"
+        android:textColor="@color/purple_500"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_slogan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
-        android:text="From Stock to Plate, Recipes Made Just for You!"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_greeting" />
 
     <!-- Top Home Section -->
     <FrameLayout
@@ -40,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_slogan">
+        app:layout_constraintTop_toBottomOf="@id/tv_greeting">
 
         <ImageView
             android:id="@+id/gambar1"
@@ -50,7 +38,7 @@
 
         <ImageView
             android:id="@+id/gambar2"
-            android:layout_width="96dp"
+            android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
@@ -61,46 +49,37 @@
             android:id="@+id/tv_findrecipesdesc"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
             android:lineSpacingExtra="6dp"
             android:text="Find recipes based on what you already have at home"
-            android:textSize="16sp"
+            android:textSize="20dp"
             android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/tv_letstry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="80dp"
-            android:text="Let's Try"
-            android:textStyle="bold"
-            android:drawableEnd="@drawable/chevron_right_24px" />
     </FrameLayout>
 
     <!-- Stock Section -->
-    <TextView
-        android:id="@+id/title_stock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        android:text="Running out soon"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_home" />
+        <TextView
+            android:id="@+id/title_stock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Running out soon"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_home" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvExpiredStock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_stock"
         app:layout_constraintBottom_toTopOf="@id/title_news" />
@@ -108,12 +87,13 @@
     <!-- News Section -->
     <TextView
         android:id="@+id/title_news"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
         android:text="News"
-        android:textSize="20sp"
+        android:textSize="22dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,6 +105,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_news"
@@ -141,8 +122,6 @@
             android:id="@+id/rvNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 
@@ -152,6 +131,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="gone"
+            android:textSize="16dp"
             tools:text="Error message" />
 
         <com.google.android.material.button.MaterialButton
