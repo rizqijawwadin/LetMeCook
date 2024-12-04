@@ -9,6 +9,7 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
+    android:backgroundTint="@color/pink_50"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
@@ -26,7 +27,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_place_holder"
-            tools:src="@drawable/ic_place_holder" />
+            android:contentDescription="@string/iv_placeholder_card_horizontal"/>
 
         <!-- Nama Bahan -->
         <TextView
@@ -36,11 +37,10 @@
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
-            tools:text="Nama Bahan" />
+            android:textColor="?attr/colorOnPrimary"
+            tools:text="@string/txt_nameStock" />
 
         <!-- Expired Date -->
         <TextView
@@ -50,8 +50,8 @@
             android:layout_marginTop="4dp"
             android:textAlignment="center"
             android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
-            tools:text="Expired: 2024-12-31" />
+            android:textColor="@color/grey_800"
+            tools:text="@string/txt_expiredStock" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

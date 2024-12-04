@@ -26,13 +26,10 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Inisialisasi Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // Tambahkan efek SpannableString untuk teks "Sign Up"
         setupSignUpLink()
 
-        // Tombol Sign In menggunakan Email dan Password
         binding.button.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val password = binding.passET.text.toString()
@@ -47,7 +44,6 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Jika pengguna sudah masuk, langsung navigasi ke MainActivity
         if (firebaseAuth.currentUser != null) {
             navigateToMain()
         }
@@ -57,26 +53,22 @@ class SignInActivity : AppCompatActivity() {
         val fullText = "Don't Have Account? Sign Up"
         val spannableString = SpannableString(fullText)
 
-        // Warna khusus untuk kata "Sign Up"
-        val colorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.purple_500))
+        val colorSpan = ForegroundColorSpan(ContextCompat.getColor(this, R.color.blue_400))
         spannableString.setSpan(colorSpan, 20, 27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        // Membuat kata "Sign Up" dapat diklik
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                // Navigasi ke halaman SignUp
                 val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
                 startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
                 super.updateDrawState(ds)
-                ds.isUnderlineText = false // Menonaktifkan garis bawah
+                ds.isUnderlineText = false
             }
         }
         spannableString.setSpan(clickableSpan, 20, 27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        // Pasang SpannableString ke TextView
         binding.textView.text = spannableString
         binding.textView.movementMethod = android.text.method.LinkMovementMethod.getInstance()
         binding.textView.highlightColor = android.graphics.Color.TRANSPARENT

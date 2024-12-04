@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.usersAuth.SignUpActivity">
 
-    <!-- Title Login -->
     <TextView
         android:id="@+id/titleSignUp"
         android:layout_width="wrap_content"
@@ -21,7 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp" />
 
-    <!-- Email Label -->
     <TextView
         android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
@@ -34,13 +32,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp" />
 
-    <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
         style="@style/LoginTextInputOuterFieldStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:textColorHint="@null"
         app:layout_constraintTop_toBottomOf="@id/emailLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -52,9 +50,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/email_hint_text"
             android:inputType="textEmailAddress" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password Label -->
     <TextView
         android:id="@+id/passwordLabel"
         android:layout_width="wrap_content"
@@ -74,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:textColorHint="@null"
         app:passwordToggleEnabled="true"
         app:layout_constraintTop_toBottomOf="@id/passwordLabel"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +85,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password_hint_text"
             android:inputType="textPassword" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Confirm Password Label -->
@@ -108,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:textColorHint="@null"
         app:passwordToggleEnabled="true"
         app:layout_constraintTop_toBottomOf="@id/confirmPasswordLabel"
         app:layout_constraintStart_toStartOf="parent"

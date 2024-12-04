@@ -8,15 +8,15 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/amber_700</item>
         <item name="colorSecondaryVariant">@color/amber_800</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/grey_800</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:colorBackground">@color/grey_900</item>
         <item name="colorOnBackground">@color/white</item>
-        <item name="colorSurface">@color/grey_800</item>
-        <item name="colorOnSurface">@color/green_800</item>
+        <item name="colorSurface">@color/green_800</item>
+        <item name="colorOnSurface">@color/green_900</item>
         <item name="colorError">@color/red_800</item>
-        <item name="colorOnError">@color/white</item>
+        <item name="colorOnError">@color/red_900</item>
     </style>
 </resources>
