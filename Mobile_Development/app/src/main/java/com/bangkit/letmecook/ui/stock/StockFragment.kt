@@ -22,14 +22,14 @@ class StockFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val favoriteViewModel =
-            ViewModelProvider(this).get(FavoriteViewModel::class.java)
+        val stockViewModel =
+            ViewModelProvider(this).get(StockViewModel::class.java)
 
         _binding = FragmentStockBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
-        favoriteViewModel.text.observe(viewLifecycleOwner) {
+        stockViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

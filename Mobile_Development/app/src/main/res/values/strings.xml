@@ -14,6 +14,7 @@
     <string name="btn_darkMode">Turn Dark Mode</string>
     <string name="btn_addStock">Add Stock</string>
     <string name="btn_editStock">Edit Stock</string>
+    <string name="btn_deleteStock">Delete Stock</string>
 
     <string name="txt_myStock">My Stock</string>
     <string name="txt_nameStock">Name Stock</string>

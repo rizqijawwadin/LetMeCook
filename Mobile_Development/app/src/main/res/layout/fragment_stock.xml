@@ -26,6 +26,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/item_button"
         android:text="@string/btn_addStock"
+        android:textAllCaps="false"
         app:icon="@drawable/ic_f7_plus_circle_24dp"
         app:layout_constraintStart_toEndOf="@id/search_stock"
         app:layout_constraintEnd_toEndOf="parent"
