@@ -30,7 +30,7 @@
                     android:layout_height="220dp"
                     android:scaleType="centerCrop"
                     android:background="@drawable/ic_place_holder"
-                    android:contentDescription="@string/news_image_description"/>
+                    android:contentDescription="@string/iv_news_image_description"/>
 
                 <TextView
                     android:id="@+id/newsTitleTextView"
