@@ -1,39 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.recipe.RecipeFragment">
 
-   <TextView
-       android:id="@+id/tv_recipe"
-       android:layout_width="260dp"
-       android:layout_height="wrap_content"
-       android:text="Find your recipes here"
-       android:textSize="28sp"
-       android:textStyle="bold"
-       android:textColor="?attr/colorPrimary"
-       android:layout_marginStart="20dp"
-       android:layout_marginTop="16dp"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"/>
-
-    <FrameLayout
-        android:id="@+id/generate_section"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_recipes"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_recipe">
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Find your recipes here"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/outframe"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/generate_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="28dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/tv_recipes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src=""/>
+            android:padding="16dp">
 
+            <TextView
+                android:id="@+id/tv_generate_instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We'll conjure a recipe from your ingredients"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/magicwand"
+                android:drawablePadding="12dp"
+                android:gravity="start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    </FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_selected_ingredients"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_white_background"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tv_generate_instruction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_ingredients" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/btn_generate_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="Generate"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/generate_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btn_generate_recipe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recipes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_categories"
+        tools:listitem="@layout/card_item_recipes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

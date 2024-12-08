@@ -8,7 +8,7 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    android:backgroundTint="?attr/colorSecondary"
+    android:backgroundTint="?attr/colorSecondaryVariant"
     app:cardCornerRadius="16dp"
     >
 

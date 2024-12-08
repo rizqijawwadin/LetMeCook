@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bangkit.letmecook.R
 import com.bangkit.letmecook.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -64,7 +62,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (pass == confirmPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(this, SignInActivity::class.java)
+                            val intent = Intent(this, CustomProfileActivity::class.java)
                             startActivity(intent)
                             finish()
                         } else {

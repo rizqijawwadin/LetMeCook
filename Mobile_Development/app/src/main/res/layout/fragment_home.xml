@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ui.home.HomeFragment">
 
     <!-- Greeting Section -->
@@ -68,8 +67,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/tv_title_running_out_stock"
-        android:textSize="22sp"
-        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textColor="?attr/colorOnSecondary"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gambar1" />
@@ -93,8 +92,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/tv_title_news"
-        android:textSize="22sp"
-        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textColor="?attr/colorOnSecondary"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvExpiredStock" />
@@ -140,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Refresh"
+            android:text="@string/txt_refresh"
             android:visibility="gone" />
     </LinearLayout>
 

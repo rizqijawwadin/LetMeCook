@@ -53,8 +53,7 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.activity)
-    implementation(libs.firebase.auth)
-    implementation (libs.play.services.auth)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,4 +61,15 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.circleimageview)
     implementation(libs.roundedimageview)
+
+    implementation(libs.firebase.auth)
+    implementation (libs.play.services.auth)
+    implementation (libs.firebase.firestore.ktx.v2511)
+    implementation (libs.firebase.storage.ktx.v2101)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+
 }

@@ -49,9 +49,16 @@
     <string name="tv_title_running_out_stock">Running out soon</string>
     <string name="tv_title_news">News</string>
     <string name="txt_refresh">Refresh</string>
-    <string name="iv_image1_description">image1</string>
-    <string name="iv_image2_description">image2</string>
+    <string name="iv_image1_description">image 1</string>
+    <string name="iv_image2_description">image 2</string>
     <string name="iv_placeholder_card_horizontal">Card Horizontal</string>
     <string name="iv_placeholder_card_vertical">Card Vertical</string>
+
+    <string name="title_detail_news">Title News</string>
+    <string name="iv_news_image_description">Image News</string>
+    <string name="detail_news_description">News Description...</string>
+
+    <string name="iv_recipe_photo">Photo Recipe</string>
+    <string name="tv_title_recipe">Recipe Name</string>
 
 </resources>
