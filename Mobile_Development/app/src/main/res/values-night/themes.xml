@@ -18,5 +18,7 @@
         <item name="colorOnSurface">@color/green_900</item>
         <item name="colorError">@color/red_800</item>
         <item name="colorOnError">@color/red_900</item>
+
+        <item name="fontFamily">@font/poppins</item>
     </style>
 </resources>

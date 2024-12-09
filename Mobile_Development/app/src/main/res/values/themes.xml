@@ -19,6 +19,7 @@
         <item name="colorError">@color/red_800</item>
         <item name="colorOnError">@color/red_900</item>
 
+        <item name="fontFamily">@font/poppins</item>
     </style>
 
     <style name="BottomNavigationCompact" parent="Widget.MaterialComponents.BottomNavigationView">

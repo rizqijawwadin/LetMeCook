@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.bangkit.letmecook.R
 import com.bangkit.letmecook.databinding.FragmentStockBinding
 
-class StockFragment : Fragment() {
+class StockFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentStockBinding? = null
 
@@ -28,11 +31,27 @@ class StockFragment : Fragment() {
         _binding = FragmentStockBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        stockViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnAddStock.setOnClickListener() {
+            findNavController().navigate(R.id.action_navigation_stock_to_navigation_stock_add)
+        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v?.id == R.id.btn_AddStock) {
+            val stockFragment = StockFragment()
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().apply {
+                replace(R.id.container, stockFragment, StockFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 
     override fun onDestroyView() {

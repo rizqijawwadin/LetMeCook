@@ -33,7 +33,7 @@
             android:text="@string/profile_name"
             android:textStyle="bold"
             android:textColor="?attr/colorOnSecondary"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginBottom="8dp"/>
         <TextView
             android:text="@string/profile_email"
@@ -51,6 +51,8 @@
         android:drawableTint="?attr/colorPrimary"
         android:drawableStart="@drawable/ic_f7_bell_circle_24dp"
         android:drawablePadding="12dp"
+        app:trackTint="@drawable/switch_track_color"
+        app:thumbTint="@drawable/switch_thumb_color"
         app:layout_constraintTop_toBottomOf="@+id/profile_photo"
         app:layout_constraintStart_toStartOf="@id/profile_photo"
         app:layout_constraintEnd_toEndOf="@id/table_desc" />
@@ -63,6 +65,8 @@
         android:drawableTint="?attr/colorPrimary"
         android:drawableStart="@drawable/ic_f7_moon_circle_24dp"
         android:drawablePadding="12sp"
+        app:trackTint="@drawable/switch_track_color"
+        app:thumbTint="@drawable/switch_thumb_color"
         app:layout_constraintTop_toBottomOf="@+id/toggle_notification"
         app:layout_constraintStart_toStartOf="@id/toggle_notification"
         app:layout_constraintEnd_toEndOf="@id/toggle_notification" />
@@ -95,22 +99,36 @@
         android:focusable="true"
         android:gravity="start"
         android:text="@string/Btn_deleteAccount"
-        android:textColor="?attr/colorError"
+        android:textColor="@color/red_90k"
         app:layout_constraintStart_toStartOf="@id/btn_logOut"
         app:layout_constraintTop_toBottomOf="@+id/btn_logOut"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/text_profile"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_favorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Favorite Recipe"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="?attr/colorOnBackground"
+        app:layout_constraintTop_toBottomOf="@id/btn_deleteAccount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/text_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_favorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/card_item_vertical"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

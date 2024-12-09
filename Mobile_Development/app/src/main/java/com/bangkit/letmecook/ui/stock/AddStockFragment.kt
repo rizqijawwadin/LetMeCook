@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.viewbinding.ViewBinding
 import com.bangkit.letmecook.R
+import com.bangkit.letmecook.databinding.FragmentAddStockBinding
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +23,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class AddStockFragment : Fragment() {
+
+    private var _binding: FragmentAddStockBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var autoCompleteTextView: MaterialAutoCompleteTextView
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,6 +46,30 @@ class AddStockFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_stock, container, false)
+
+        setupDropdown()
+    }
+
+    private fun setupDropdown() {
+        val categoryItems = resources.getStringArray(R.array.category_items)
+        binding.itemAddStockCategory.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, categoryItems))
+        binding.itemAddStockCategory.setOnItemClickListener { _, _, position, _ ->
+            when (position) {
+                0 -> {
+                    binding.layoutPackaged.visibility = View.VISIBLE
+                    binding.layoutFresh.visibility = View.GONE
+                }
+                1 -> {
+                    binding.layoutPackaged.visibility = View.GONE
+                    binding.layoutFresh.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

@@ -21,11 +21,21 @@
         android:id="@+id/navigation_stock"
         android:name="com.bangkit.letmecook.ui.stock.StockFragment"
         android:label="@string/title_stock"
-        tools:layout="@layout/fragment_stock" />
+        tools:layout="@layout/fragment_stock" >
+        <action
+            android:id="@+id/action_navigation_stock_to_navigation_stock_add"
+            app:destination="@id/navigation_stock_add" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.bangkit.letmecook.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_stock_add"
+        android:name="com.bangkit.letmecook.ui.stock.AddStockFragment"
+        android:label="@string/btn_addStock"
+        tools:layout="@layout/fragment_add_stock" />
 </navigation>

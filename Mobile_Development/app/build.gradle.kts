@@ -62,14 +62,16 @@ dependencies {
     implementation(libs.circleimageview)
     implementation(libs.roundedimageview)
 
-    implementation(libs.firebase.auth)
-    implementation (libs.play.services.auth)
-    implementation (libs.firebase.firestore.ktx.v2511)
-    implementation (libs.firebase.storage.ktx.v2101)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
+    implementation(libs.firebase.auth)
+    implementation(libs.play.services.auth)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.storage.ktx)
+    
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
-
-
 }

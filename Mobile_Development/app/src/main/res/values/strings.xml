@@ -15,12 +15,19 @@
     <string name="btn_addStock">Add Stock</string>
     <string name="btn_editStock">Edit Stock</string>
     <string name="btn_deleteStock">Delete Stock</string>
+    <string name="btn_fridgeStorage">Fridge</string>
+    <string name="btn_cupboardStorage">Cupboard</string>
 
     <string name="txt_myStock">My Stock</string>
     <string name="txt_nameStock">Name Stock</string>
+    <string name="txt_totalStock">Total Stock</string>
+    <string name="txt_unitStock">Unit Stock</string>
+    <string name="txt_purchaseStock">Purchase date</string>
+    <string name="txt_storageStock">Storage Place</string>
     <string name="txt_inStock">In Stock :</string>
     <string name="txt_amountStock">Amount Stock</string>
     <string name="txt_expiredStock">Expired Stock</string>
+    <string name="txt_categoryStock">Category</string>
     <string name="txt_notFoundState">Sorry, We Can\'t Find</string>
     <string name="txt_emptyState">It Looks Like There\'s Still Nothing</string>
     <string name="txt_loadingState">Loading . . . .</string>
@@ -53,6 +60,15 @@
     <string name="iv_image2_description">image 2</string>
     <string name="iv_placeholder_card_horizontal">Card Horizontal</string>
     <string name="iv_placeholder_card_vertical">Card Vertical</string>
+    
+    <string-array name="category_items">
+        <item>Packaged</item>
+        <item>Fresh</item>
+    </string-array>
+    <string-array name="unit_items">
+        <item>KG</item>
+        <item>ML</item>
+    </string-array>
 
     <string name="title_detail_news">Title News</string>
     <string name="iv_news_image_description">Image News</string>

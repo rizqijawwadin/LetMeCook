@@ -27,7 +27,7 @@
             android:contentDescription="@string/btn_deleteStock"
             android:padding="8dp"
             android:src="@drawable/ic_proicons_delete_24dp"
-            app:tint="?attr/colorOnPrimary"
+            app:tint="?attr/colorOnError"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:cardCornerRadius="16dp"
-        app:cardBackgroundColor="?attr/colorPrimary"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/item_stock_delete"
@@ -96,7 +96,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_expiredStock"
-                android:textColor="?attr/colorError"
+                android:textColor="?attr/colorOnError"
                 app:layout_constraintStart_toStartOf="@id/item_stock_name"
                 app:layout_constraintEnd_toEndOf="@id/item_stock_name"
                 app:layout_constraintBottom_toBottomOf="parent" />

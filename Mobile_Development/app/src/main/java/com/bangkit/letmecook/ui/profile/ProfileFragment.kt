@@ -12,6 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bangkit.letmecook.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.ViewModelFactoryDsl
 import com.bangkit.letmecook.databinding.FragmentProfileBinding
 import com.bangkit.letmecook.ui.usersAuth.SignInActivity
 import com.bumptech.glide.Glide
@@ -34,9 +38,12 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+//        val profileViewModel =
+//            ViewModelProvider(this).get(ProfileViewModel::class.java)
+
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+    
         binding.btnLogOut.setOnClickListener {
             showConfirmationDialog("Are you sure you want to log out?") {
                 firebaseAuth.signOut()
@@ -51,8 +58,26 @@ class ProfileFragment : Fragment() {
         }
 
         loadUserProfile()
-
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val switchTheme = binding.toggleDarkMode
+        val pref = ProfilePreferences.getInstance(requireContext().dataStore)
+        val profileViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(ProfileViewModel::class.java)
+
+        profileViewModel.isDarkMode.observe(viewLifecycleOwner) { isDarkMode ->
+            AppCompatDelegate.setDefaultNightMode(
+                if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            )
+            switchTheme.isChecked = isDarkMode
+        }
+
+        switchTheme.setOnCheckedChangeListener() { _, isChecked ->
+            profileViewModel.saveThemeSetting(isChecked)
+        }
     }
 
     private fun redirectToLogin() {
@@ -139,7 +164,7 @@ class ProfileFragment : Fragment() {
             .show()
     }
 
-    override fun onDestroyView() {
+override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }

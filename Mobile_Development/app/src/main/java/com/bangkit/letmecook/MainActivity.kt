@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.letmecook.databinding.ActivityMainBinding
+import com.bangkit.letmecook.ui.profile.ProfilePreferences
+import com.bangkit.letmecook.ui.profile.ProfileViewModel
+import com.bangkit.letmecook.ui.profile.ViewModelFactory
+import com.bangkit.letmecook.ui.profile.dataStore
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,5 +39,14 @@ class MainActivity : AppCompatActivity() {
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         navView.visibility = if (resources.configuration.screenWidthDp >= 600) View.GONE else View.VISIBLE
+
+        val pref = ProfilePreferences.getInstance(applicationContext.dataStore)
+        val profileViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(ProfileViewModel::class.java)
+
+        profileViewModel.isDarkMode.observe(this) { isDarkModeActive ->
+            AppCompatDelegate.setDefaultNightMode(
+                if (isDarkModeActive) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            )
+        }
     }
 }
