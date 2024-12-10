@@ -114,8 +114,7 @@ class ProfileFragment : Fragment() {
         val user = firebaseAuth.currentUser ?: return
         val email = user.email ?: return
 
-        // Minta password dari pengguna (dapat dimasukkan melalui dialog atau input text)
-        val password = "user_password" // Ambil dari input pengguna
+        val password = "user_password"
         val credential = EmailAuthProvider.getCredential(email, password)
 
         user.reauthenticate(credential)
@@ -136,11 +135,11 @@ class ProfileFragment : Fragment() {
                     if (document.exists()) {
                         val username = document.getString("username") ?: "No Name"
                         val profileImageUrl = document.getString("profileImageUrl") ?: ""
+                        val email = user.email ?: "No email"
 
-                        // Tampilkan username
                         binding.tableDesc.findViewById<TextView>(R.id.profile_name)?.text = username
+                        binding.profileEmail.text = "$email"
 
-                        // Tampilkan foto profil (gunakan Glide untuk memuat URL)
                         Glide.with(this)
                             .load(profileImageUrl)
                             .placeholder(R.drawable.ic_proicons_person_24dp)

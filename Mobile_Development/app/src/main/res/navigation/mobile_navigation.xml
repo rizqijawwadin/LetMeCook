@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.bangkit.letmecook.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailArticleFragment"
+            app:destination="@id/detailArticleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_recipe"
@@ -38,4 +42,13 @@
         android:name="com.bangkit.letmecook.ui.stock.AddStockFragment"
         android:label="@string/btn_addStock"
         tools:layout="@layout/fragment_add_stock" />
+    <fragment
+        android:id="@+id/detailArticleFragment"
+        android:name="com.bangkit.letmecook.ui.home.DetailArticleFragment"
+        android:label="fragment_detail_article"
+        tools:layout="@layout/fragment_detail_article">
+    <argument
+        android:name="article"
+        app:argType="com.bangkit.letmecook.data.response.Article"/>
+    </fragment>
 </navigation>

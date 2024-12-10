@@ -5,57 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
-    
+
+    <View
+        android:id="@+id/view_top_background"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/blue_300"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_photo"
         android:layout_width="104dp"
         android:layout_height="104dp"
-        android:layout_margin="36dp"
+        android:layout_marginTop="70dp"
         android:src="@drawable/ic_proicons_person_24dp"
-        app:civ_border_width="1dp"
+        android:elevation="4dp"
+        app:civ_border_width="3dp"
         app:civ_border_color="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/toggle_notification" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TableLayout
         android:id="@+id/table_desc"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:layout_marginHorizontal="36dp"
-        app:layout_constraintStart_toEndOf="@id/profile_photo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/profile_photo"
-        app:layout_constraintBottom_toBottomOf="@id/profile_photo">
+        app:layout_constraintTop_toBottomOf="@id/profile_photo"
+    app:layout_constraintBottom_toTopOf="@id/toggle_notification">
 
-        <TextView
-            android:id="@+id/profile_name"
-            android:text="@string/profile_name"
-            android:textStyle="bold"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="20sp"
-            android:layout_marginBottom="8dp"/>
-        <TextView
-            android:text="@string/profile_email"
-            android:layout_marginBottom="8dp"/>
-        <TextView
-            android:text="@string/profile_motivation" />
-    </TableLayout>
+    <TextView
+        android:id="@+id/profile_name"
+        android:text="@string/profile_name"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnBackground"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/profile_email"
+        android:text="@string/profile_email"
+        android:textAlignment="center"
+        android:layout_marginBottom="8dp"/>
+
+</TableLayout>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/toggle_notification"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:text="@string/btn_notification"
         android:drawableTint="?attr/colorPrimary"
         android:drawableStart="@drawable/ic_f7_bell_circle_24dp"
         android:drawablePadding="12dp"
         app:trackTint="@drawable/switch_track_color"
         app:thumbTint="@drawable/switch_thumb_color"
-        app:layout_constraintTop_toBottomOf="@+id/profile_photo"
-        app:layout_constraintStart_toStartOf="@id/profile_photo"
-        app:layout_constraintEnd_toEndOf="@id/table_desc" />
+        app:layout_constraintTop_toBottomOf="@id/table_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/toggle_darkMode"
@@ -67,7 +80,7 @@
         android:drawablePadding="12sp"
         app:trackTint="@drawable/switch_track_color"
         app:thumbTint="@drawable/switch_thumb_color"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_notification"
+        app:layout_constraintTop_toBottomOf="@id/toggle_notification"
         app:layout_constraintStart_toStartOf="@id/toggle_notification"
         app:layout_constraintEnd_toEndOf="@id/toggle_notification" />
 
@@ -85,7 +98,7 @@
         android:drawablePadding="12dp"
         app:drawableStartCompat="@drawable/ic_f7_arrow_circle_24dp"
         app:drawableTint="?attr/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_darkMode"
+        app:layout_constraintTop_toBottomOf="@id/toggle_darkMode"
         app:layout_constraintStart_toStartOf="@id/toggle_darkMode"
         app:layout_constraintEnd_toEndOf="@id/toggle_darkMode"/>
 
@@ -101,8 +114,19 @@
         android:text="@string/Btn_deleteAccount"
         android:textColor="@color/red_90k"
         app:layout_constraintStart_toStartOf="@id/btn_logOut"
-        app:layout_constraintTop_toBottomOf="@+id/btn_logOut"
+        app:layout_constraintTop_toBottomOf="@id/btn_logOut"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/btn_deleteAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_favorite"

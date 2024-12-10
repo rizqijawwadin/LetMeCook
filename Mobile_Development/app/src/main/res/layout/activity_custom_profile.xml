@@ -1,54 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F0F4F8">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="100dp"
         android:src="@drawable/ic_place_holder"
         android:scaleType="centerCrop"
-        android:background="@drawable/circle_background"
-        android:layout_gravity="center"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="64dp"
+        app:shapeAppearanceOverlay="@style/CircularImageStyle"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonChoosePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
         android:text="Pilih Foto Profil"
-        android:backgroundTint="?attr/colorPrimaryVariant"
-        android:textColor="@android:color/white" />
+        android:layout_marginTop="16dp"
+        app:cornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="?attr/colorPrimary"
+        android:textColor="?attr/colorPrimaryVariant"/>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:textColorHint="@color/blue_300"
+        app:boxBackgroundColor="@null"
+        app:boxStrokeColor="@color/blue_300"
+        app:boxStrokeErrorColor="@color/red_900"
+        app:boxBackgroundMode="outline"
+    app:boxCornerRadiusTopStart="12dp"
+    app:boxCornerRadiusTopEnd="12dp"
+    app:boxCornerRadiusBottomStart="12dp"
+    app:boxCornerRadiusBottomEnd="12dp"
+    app:layout_constraintTop_toBottomOf="@id/buttonChoosePhoto"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        android:layout_marginTop="16dp"/>
 
-    <Button
+        android:inputType="text"
+        android:background="@null"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+
+<com.google.android.material.button.MaterialButton
         android:id="@+id/buttonSaveProfile"
-        style="@style/ShapeAppearance.Material3.Corner.Medium"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Save Profile"
-        android:backgroundTint="?attr/colorSurface"
-        android:layout_marginTop="16dp"/>
-    <Button
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        app:cornerRadius="24dp"
+        app:layout_constraintTop_toBottomOf="@id/usernameInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonNext"
-        style="@style/ShapeAppearance.Material3.Corner.Medium"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Next"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
-        />
+        app:cornerRadius="24dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonSaveProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

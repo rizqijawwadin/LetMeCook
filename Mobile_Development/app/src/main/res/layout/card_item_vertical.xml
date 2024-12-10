@@ -8,9 +8,9 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    android:backgroundTint="?attr/colorSecondaryVariant"
-    app:cardCornerRadius="16dp"
-    >
+    android:backgroundTint="?attr/colorSecondary"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,15 +18,17 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/imageNews"
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageArticle"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:scaleType="centerCrop"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_place_holder"
-            android:contentDescription="@string/iv_placeholder_card_vertical"/>
+            android:contentDescription="@string/iv_placeholder_card_vertical"
+            app:riv_corner_radius="12dp"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,15 +36,15 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/titleNews"
+                android:id="@+id/titleArticle"
                 tools:text="Sample Event Title Long"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textSize="16sp"
+                android:textSize="12dp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnPrimary"/>
+                android:textColor="@color/grey_800"/>
 
             <TextView
                 android:id="@+id/descriptionNews"
@@ -51,8 +53,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:ellipsize="end"
-                android:maxLines="5"
-                android:textSize="12sp"
+                android:maxLines="3"
+                android:textSize="10dp"
                 android:textColor="@color/grey_800"/>
 
         </LinearLayout>

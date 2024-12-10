@@ -60,7 +60,7 @@
     <string name="iv_image2_description">image 2</string>
     <string name="iv_placeholder_card_horizontal">Card Horizontal</string>
     <string name="iv_placeholder_card_vertical">Card Vertical</string>
-    
+
     <string-array name="category_items">
         <item>Packaged</item>
         <item>Fresh</item>
@@ -76,5 +76,8 @@
 
     <string name="iv_recipe_photo">Photo Recipe</string>
     <string name="tv_title_recipe">Recipe Name</string>
+
+    <string name="cd_btn_back">Button Back</string>
+    <string name="tv_title_detail">Detail</string>
 
 </resources>

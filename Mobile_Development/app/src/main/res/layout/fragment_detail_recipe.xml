@@ -68,18 +68,27 @@
             app:layout_constraintTop_toBottomOf="@id/tvRecipeName"
             tools:text="Cooking Time: 30 minutes" />
 
+        <TextView
+            android:id="@+id/tvServes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            tools:text="Serves : 4"
+            app:layout_constraintTop_toBottomOf="@id/tvCookingTime"
+            app:layout_constraintBottom_toTopOf="@id/tvIngredients"/>
+
         <!-- Ingredients -->
         <TextView
             android:id="@+id/tvIngredients"
             style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/tvCookingSteps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCookingTime"
+            app:layout_constraintTop_toBottomOf="@id/tvServes"
             tools:text="Ingredients:\n- 1 cup of rice\n- 2 eggs\n- 1 tsp salt" />
 
         <!-- Cooking Steps -->
