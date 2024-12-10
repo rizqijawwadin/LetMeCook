@@ -81,7 +81,9 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_stock"
-        app:layout_constraintBottom_toTopOf="@id/title_news" />
+        app:layout_constraintBottom_toTopOf="@id/title_news"
+        tools:listitem="@layout/item_state"
+        tools:itemCount="1" />
 
     <!-- News Section -->
     <TextView

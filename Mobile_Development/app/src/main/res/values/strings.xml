@@ -72,7 +72,7 @@
 
     <string name="title_detail_news">Title News</string>
     <string name="iv_news_image_description">Image News</string>
-    <string name="detail_news_description">News Description...</string>
+    <string name="detail_news_description">News Description…</string>
 
     <string name="iv_recipe_photo">Photo Recipe</string>
     <string name="tv_title_recipe">Recipe Name</string>

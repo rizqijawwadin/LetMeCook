@@ -1,12 +1,19 @@
 package com.bangkit.letmecook.ui.stock
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.bangkit.letmecook.R
 import com.bangkit.letmecook.databinding.FragmentAddStockBinding
@@ -28,6 +35,19 @@ class AddStockFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var autoCompleteTextView: MaterialAutoCompleteTextView
 
+    private var currentImageUri: Uri? = null
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ){
+        uri: Uri? ->
+        if (uri != null) {
+            currentImageUri = uri
+            showImage()
+        } else {
+            Log.d("Photo Picker", "No media selected")
+        }
+    }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -45,14 +65,31 @@ class AddStockFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_stock, container, false)
+//        return inflater.inflate(R.layout.fragment_add_stock, container, false)
+        _binding = FragmentAddStockBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val bottomNav = requireActivity().findViewById<View>(R.id.nav_view)
+        bottomNav.visibility = View.GONE
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            setDisplayShowHomeEnabled(false)
+            title = resources.getString(R.string.btn_addStock)
+        }
 
         setupDropdown()
+        return root
     }
 
     private fun setupDropdown() {
         val categoryItems = resources.getStringArray(R.array.category_items)
-        binding.itemAddStockCategory.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, categoryItems))
+        val categoryAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, categoryItems)
+        binding.itemAddStockCategory.setAdapter(categoryAdapter)
+
+        binding.itemAddStockCategory.setText(categoryItems[0], false)
+        binding.layoutPackaged.visibility = View.VISIBLE
+        binding.layoutFresh.visibility = View.GONE
+
         binding.itemAddStockCategory.setOnItemClickListener { _, _, position, _ ->
             when (position) {
                 0 -> {
@@ -67,9 +104,44 @@ class AddStockFragment : Fragment() {
         }
     }
 
+    private fun startGallery() {
+        launcherGallery.launch(
+            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+        )
+    }
+
+    private fun showImage() {
+        currentImageUri?.let {
+            Log.d("Image URI", "showImage: $it")
+            binding.itemAddStockImage.setImageURI(it)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().navigateUp()
+            }
+        })
+
+        binding.itemAddStockImage.setOnClickListener() {
+            startGallery()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+
+        val bottomNav = requireActivity().findViewById<View>(R.id.nav_view)
+        bottomNav.visibility = View.VISIBLE
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            setDisplayShowHomeEnabled(false)
+            title = resources.getString(R.string.btn_addStock)
+        }
     }
 
     companion object {
