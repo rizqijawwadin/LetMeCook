@@ -16,17 +16,18 @@
             android:id="@+id/cardViewMediaCover"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvRecipeName"
+            app:layout_constraintBottom_toTopOf="@+id/recipeName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/ivMediaCover"
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/recipeImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="recipe_image"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="12dp"/>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Favorite Button -->
@@ -44,12 +45,12 @@
 
         <!-- Recipe Name -->
         <TextView
-            android:id="@+id/tvRecipeName"
+            android:id="@+id/recipeName"
             style="@style/TextAppearance.Material3.HeadlineSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvCookingTime"
+            app:layout_constraintBottom_toTopOf="@+id/cookingTime"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardViewMediaCover"
@@ -57,29 +58,29 @@
 
         <!-- Cooking Time -->
         <TextView
-            android:id="@+id/tvCookingTime"
+            android:id="@+id/cookingTime"
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvIngredients"
+            app:layout_constraintBottom_toTopOf="@+id/ingredients"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRecipeName"
+            app:layout_constraintTop_toBottomOf="@id/recipeName"
             tools:text="Cooking Time: 30 minutes" />
 
         <TextView
-            android:id="@+id/tvServes"
+            android:id="@+id/serves"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             tools:text="Serves : 4"
-            app:layout_constraintTop_toBottomOf="@id/tvCookingTime"
-            app:layout_constraintBottom_toTopOf="@id/tvIngredients"/>
+            app:layout_constraintTop_toBottomOf="@id/cookingTime"
+            app:layout_constraintBottom_toTopOf="@id/ingredients"/>
 
         <!-- Ingredients -->
         <TextView
-            android:id="@+id/tvIngredients"
+            android:id="@+id/ingredients"
             style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,7 +89,7 @@
             app:layout_constraintBottom_toTopOf="@+id/tvCookingSteps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvServes"
+            app:layout_constraintTop_toBottomOf="@id/serves"
             tools:text="Ingredients:\n- 1 cup of rice\n- 2 eggs\n- 1 tsp salt" />
 
         <!-- Cooking Steps -->
@@ -102,7 +103,7 @@
             app:layout_constraintBottom_toTopOf="@+id/btnLetMeCook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvIngredients"
+            app:layout_constraintTop_toBottomOf="@id/ingredients"
             tools:text="Steps:\n1. Wash the rice.\n2. Beat the eggs.\n3. Cook everything together." />
 
         <!-- Let Me Cook Button -->

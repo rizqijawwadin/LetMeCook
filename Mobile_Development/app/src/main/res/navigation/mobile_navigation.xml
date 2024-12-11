@@ -51,4 +51,13 @@
         android:name="article"
         app:argType="com.bangkit.letmecook.data.response.Article"/>
     </fragment>
+    <fragment
+        android:id="@+id/detailRecipeFragment"
+        android:name="com.bangkit.letmecook.ui.recipe.DetailRecipeFragment"
+        android:label="fragment_detail_recipe"
+        tools:layout="@layout/fragment_detail_recipe" >
+        <argument
+            android:name="recipeId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
