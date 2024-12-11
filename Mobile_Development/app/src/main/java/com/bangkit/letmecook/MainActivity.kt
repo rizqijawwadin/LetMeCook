@@ -1,6 +1,7 @@
 package com.bangkit.letmecook
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -47,6 +50,16 @@ class MainActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(
                 if (isDarkModeActive) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
             )
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

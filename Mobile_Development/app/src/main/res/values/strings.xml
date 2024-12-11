@@ -28,6 +28,7 @@
     <string name="txt_amountStock">Amount Stock</string>
     <string name="txt_expiredStock">Expired Stock</string>
     <string name="txt_categoryStock">Category</string>
+    <string name="txt_favoriteRecipe">Favorite</string>
     <string name="txt_notFoundState">Sorry, We Can\'t Find</string>
     <string name="txt_emptyState">It Looks Like There\'s Still Nothing</string>
     <string name="txt_loadingState">Loading . . . .</string>

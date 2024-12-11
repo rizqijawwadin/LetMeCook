@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.profile.ProfileSettingFragment">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/toggle_notification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_notification"
+        android:drawableTint="?attr/colorPrimary"
+        android:drawableStart="@drawable/ic_f7_bell_circle_24dp"
+        android:drawablePadding="12dp"
+        app:trackTint="@drawable/switch_track_color"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/toggle_darkMode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_darkMode"
+        android:drawableTint="?attr/colorPrimary"
+        android:drawableStart="@drawable/ic_f7_moon_circle_24dp"
+        android:drawablePadding="12sp"
+        app:trackTint="@drawable/switch_track_color"
+        app:thumbTint="@drawable/switch_thumb_color"
+        app:layout_constraintTop_toBottomOf="@id/toggle_notification"
+        app:layout_constraintStart_toStartOf="@id/toggle_notification"
+        app:layout_constraintEnd_toEndOf="@id/toggle_notification" />
+
+    <TextView
+        android:id="@+id/btn_logOut"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorOnBackground"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/btn_logOut"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawablePadding="12dp"
+        app:drawableStartCompat="@drawable/ic_f7_arrow_circle_24dp"
+        app:drawableTint="?attr/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/toggle_darkMode"
+        app:layout_constraintStart_toStartOf="@id/toggle_darkMode"
+        app:layout_constraintEnd_toEndOf="@id/toggle_darkMode"/>
+
+    <TextView
+        android:id="@+id/btn_deleteAccount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="start"
+        android:text="@string/Btn_deleteAccount"
+        android:textColor="@color/red_90k"
+        app:layout_constraintStart_toStartOf="@id/btn_logOut"
+        app:layout_constraintTop_toBottomOf="@id/btn_logOut"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/btn_deleteAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

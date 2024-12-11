@@ -122,7 +122,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
-                android:hint="@string/txt_nameStock"
+                android:focusable="false"
+                android:hint="@string/txt_expiredStock"
                 android:maxLines="1"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -221,6 +222,7 @@
                 android:id="@+id/item_add_dropdown_stock_unit"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
+                android:padding="6dp"
                 android:hint="@string/txt_unitStock"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
