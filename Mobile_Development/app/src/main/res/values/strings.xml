@@ -15,7 +15,7 @@
     <string name="btn_addStock">Add Stock</string>
     <string name="btn_editStock">Edit Stock</string>
     <string name="btn_deleteStock">Delete Stock</string>
-    <string name="btn_fridgeStorage">Fridge</string>
+    <string name="btn_fridgeStorage">Refrigerator</string>
     <string name="btn_cupboardStorage">Cupboard</string>
 
     <string name="txt_myStock">My Stock</string>
@@ -67,8 +67,8 @@
         <item>Fresh</item>
     </string-array>
     <string-array name="unit_items">
-        <item>KG</item>
-        <item>ML</item>
+        <item>Kg</item>
+        <item>Gram</item>
     </string-array>
 
     <string name="title_detail_news">Title News</string>

@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,8 +20,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.bangkit.letmecook.R
+import com.bangkit.letmecook.data.retrofit.ApiConfig
 import com.bangkit.letmecook.databinding.FragmentAddStockBinding
+import com.bangkit.letmecook.local.entity.InventoryEntity
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.firebase.auth.FirebaseAuth
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,6 +57,8 @@ class AddStockFragment : Fragment() {
             Log.d("Photo Picker", "No media selected")
         }
     }
+
+    private var currentCategory: String = "packaged"
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -95,10 +104,12 @@ class AddStockFragment : Fragment() {
         binding.itemAddStockCategory.setOnItemClickListener { _, _, position, _ ->
             when (position) {
                 0 -> {
+                    currentCategory = "packaged"
                     binding.layoutPackaged.visibility = View.VISIBLE
                     binding.layoutFresh.visibility = View.GONE
                 }
                 1 -> {
+                    currentCategory = "fresh"
                     binding.layoutPackaged.visibility = View.GONE
                     binding.layoutFresh.visibility = View.VISIBLE
                 }
@@ -127,7 +138,19 @@ class AddStockFragment : Fragment() {
         }
 
         binding.itemAddStockExpired.setOnClickListener() {
-            setCalendar()
+            if (currentCategory == "packaged") {
+                setCalendar()
+            }
+        }
+
+        binding.itemAddStockPurchase.setOnClickListener() {
+            if (currentCategory == "fresh") {
+                setCalendar()
+            }
+        }
+
+        binding.btnAddStockValid.setOnClickListener() {
+            addStockToInventory()
         }
     }
 
@@ -155,14 +178,69 @@ class AddStockFragment : Fragment() {
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             { _, selectedYear, selectedMonth, selectedDay ->
-                val selectedDate = "$selectedDay-${selectedMonth + 1}-$selectedYear"
-                binding.itemAddStockExpired.setText(selectedDate)
+                val selectedDate = "$selectedYear-${selectedMonth + 1}-$selectedDay"
+                if (currentCategory == "packaged") {
+                    binding.itemAddStockExpired.setText(selectedDate)
+                } else if (currentCategory == "fresh") {
+                    binding.itemAddStockPurchase.setText(selectedDate)
+                }
             },
             year,
             month,
             day
         )
         datePickerDialog.show()
+    }
+
+    private fun addStockToInventory() {
+        val name = binding.itemAddStockName.text.toString()
+        val quantityText = binding.itemAddStockTotal.text.toString()
+        val expiryDate = binding.itemAddStockExpired.text.toString()
+        val purchaseDate = binding.itemAddStockPurchase.text.toString()
+
+        if (name.isEmpty() || quantityText.isEmpty() || expiryDate.isEmpty() || currentImageUri == null) {
+            Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val quantity = quantityText.toInt()
+
+        val userId = 2
+
+        val ingredientId = 3
+        val inventoryId = 8711
+
+        val ingredientsPic = currentImageUri?.toString()
+        val unit = binding.itemAddDropdownStockUnit.text.toString()
+        val place = binding.txtStorageStock.text.toString()
+
+        val newStock = InventoryEntity(
+            user_id_user = userId,
+            ingredient_id_ingredient = ingredientId,
+            id_inventory = inventoryId,
+            ingredients_pic = ingredientsPic,
+            buy_date = purchaseDate,
+            stock = quantity,
+            unit = unit,
+            place = place,
+            expiry_date = expiryDate,
+            ingredient_name = name
+        )
+
+        val apiService = ApiConfig.getApiService()
+        apiService.addInventory(newStock).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(context, "Stock added successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Failed to add stock", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     override fun onDestroyView() {

@@ -77,4 +77,5 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 }

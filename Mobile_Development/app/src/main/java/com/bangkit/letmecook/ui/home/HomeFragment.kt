@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
 
         viewModel = ViewModelProvider(
             this,
-            ArticleViewModelFactory(ArticleRepository(ApiConfig.instance))
+            ArticleViewModelFactory(ArticleRepository(ApiConfig.getApiService()))
         ).get(HomeViewModel::class.java)
 
 
