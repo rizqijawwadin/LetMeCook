@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.recipe.DetailRecipeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Recipe Image -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewMediaCover"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvRecipeName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivMediaCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="recipe_image"
+                android:scaleType="centerCrop" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Favorite Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabLove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="-20dp"
+            android:contentDescription="favorite_description"
+            android:src="@drawable/ic_favorite"
+            app:backgroundTint="@color/pink_50"
+            app:layout_constraintBottom_toBottomOf="@id/cardViewMediaCover"
+            app:layout_constraintEnd_toEndOf="@id/cardViewMediaCover" />
+
+        <!-- Recipe Name -->
+        <TextView
+            android:id="@+id/tvRecipeName"
+            style="@style/TextAppearance.Material3.HeadlineSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvCookingTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewMediaCover"
+            tools:text="Recipe Name" />
+
+        <!-- Cooking Time -->
+        <TextView
+            android:id="@+id/tvCookingTime"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvIngredients"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecipeName"
+            tools:text="Cooking Time: 30 minutes" />
+
+        <TextView
+            android:id="@+id/tvServes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            tools:text="Serves : 4"
+            app:layout_constraintTop_toBottomOf="@id/tvCookingTime"
+            app:layout_constraintBottom_toTopOf="@id/tvIngredients"/>
+
+        <!-- Ingredients -->
+        <TextView
+            android:id="@+id/tvIngredients"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvCookingSteps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvServes"
+            tools:text="Ingredients:\n- 1 cup of rice\n- 2 eggs\n- 1 tsp salt" />
+
+        <!-- Cooking Steps -->
+        <TextView
+            android:id="@+id/tvCookingSteps"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnLetMeCook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIngredients"
+            tools:text="Steps:\n1. Wash the rice.\n2. Beat the eggs.\n3. Cook everything together." />
+
+        <!-- Let Me Cook Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLetMeCook"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Let Me Cook"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnPrimary"
+            app:backgroundTint="?attr/colorSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCookingSteps" />
+
+        <ProgressBar
+            android:id="@+id/progressBarDetailRecipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

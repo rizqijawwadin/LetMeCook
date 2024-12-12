@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Let Me Cook</string>
+    <string name="title_home">Home</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="title_stock">Stock</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="btn_setting">Setting</string>
+    <string name="btn_editProfile">Edit Profile</string>
+    <string name="btn_notification">Notification</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_logOut">Log Out</string>
+    <string name="Btn_deleteAccount">Delete Account</string>
+    <string name="btn_darkMode">Turn Dark Mode</string>
+    <string name="btn_addStock">Add Stock</string>
+    <string name="btn_editStock">Edit Stock</string>
+    <string name="btn_deleteStock">Delete Stock</string>
+    <string name="btn_fridgeStorage">Refrigerator</string>
+    <string name="btn_cupboardStorage">Cupboard</string>
+
+    <string name="txt_myStock">My Stock</string>
+    <string name="txt_nameStock">Name Stock</string>
+    <string name="txt_totalStock">Total Stock</string>
+    <string name="txt_unitStock">Unit Stock</string>
+    <string name="txt_purchaseStock">Purchase date</string>
+    <string name="txt_storageStock">Storage Place</string>
+    <string name="txt_inStock">In Stock :</string>
+    <string name="txt_amountStock">Amount Stock</string>
+    <string name="txt_expiredStock">Expired Stock</string>
+    <string name="txt_categoryStock">Category</string>
+    <string name="txt_favoriteRecipe">Favorite</string>
+    <string name="txt_notFoundState">Sorry, We Can\'t Find</string>
+    <string name="txt_emptyState">It Looks Like There\'s Still Nothing</string>
+    <string name="txt_loadingState">Loading . . . .</string>
+    <string name="txt_errorState">Oh No, Something Went Wrong</string>
+
+    <string name="profile_name">Your Name</string>
+    <string name="profile_email">Your E-mail</string>
+    <string name="profile_motivation">Your Motivation</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_signin">Sign in</string>
+    <string name="title_signup">Sign up</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="title_confirm_password">Confirm Password</string>
+    <string name="email_hint_text">Enter your email</string>
+    <string name="password_hint_text">Enter your password</string>
+    <string name="confirm_password_hint_text">Confirm your password</string>
+    <string name="register">Dont Have Account?  Sign up!</string>
+    <string name="have_account">Already Have Account? Sign In!</string>
+    <string name="button_text_signin">Sign in</string>
+    <string name="button_text_signup">Sign up</string>
+    <string name="default_web_client_id">426524788512-ptidrr78h8amj0efsipr9oaa2lugs9fc.apps.googleusercontent.com</string>
+
+    <string name="tv_greeting">Hi, Welcome</string>
+    <string name="tv_top_description">Find recipes based on what you already have at home</string>
+    <string name="tv_title_running_out_stock">Running out soon</string>
+    <string name="tv_title_news">News</string>
+    <string name="txt_refresh">Refresh</string>
+    <string name="iv_image1_description">image 1</string>
+    <string name="iv_image2_description">image 2</string>
+    <string name="iv_placeholder_card_horizontal">Card Horizontal</string>
+    <string name="iv_placeholder_card_vertical">Card Vertical</string>
+
+    <string-array name="category_items">
+        <item>Packaged</item>
+        <item>Fresh</item>
+    </string-array>
+    <string-array name="unit_items">
+        <item>Kg</item>
+        <item>Gram</item>
+    </string-array>
+
+    <string name="title_detail_news">Title News</string>
+    <string name="iv_news_image_description">Image News</string>
+    <string name="detail_news_description">News Description…</string>
+
+    <string name="iv_recipe_photo">Photo Recipe</string>
+    <string name="tv_title_recipe">Recipe Name</string>
+
+    <string name="cd_btn_back">Button Back</string>
+    <string name="tv_title_detail">Detail</string>
+
+</resources>
