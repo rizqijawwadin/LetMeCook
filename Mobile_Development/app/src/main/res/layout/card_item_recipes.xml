@@ -34,19 +34,21 @@
             android:textStyle="bold"
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@id/recipeImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cookingTime"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/cookingTime"
+            android:id="@+id/categoryTag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="30 min"
-            android:textSize="16sp"
-            android:drawableStart="@drawable/timer_24px"
-            android:drawablePadding="4dp"
-            android:textColor="?attr/colorSecondary"
-            app:layout_constraintTop_toTopOf="@id/recipeName"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:textSize="12sp"
+            android:textColor="@color/grey_900"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_category_tag"
+            app:layout_constraintTop_toTopOf="@id/recipeImage"
+            app:layout_constraintEnd_toEndOf="@id/recipeImage"
+            android:layout_margin="8dp"
+            tools:text="Category"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

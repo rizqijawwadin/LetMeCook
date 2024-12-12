@@ -7,7 +7,7 @@
     android:layout_marginVertical="6dp"
     android:layout_marginHorizontal="8dp"
     android:layout_gravity="center">
-    
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/item_stock_delete"
         android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_state_card">
 
         <ImageButton
+            android:id="@+id/btn_delete_stcok"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -50,7 +51,7 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/item_stock_photo"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
@@ -64,6 +65,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="@string/txt_nameStock"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnPrimary"
@@ -73,12 +76,14 @@
 
             <TableRow
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="18dp"
                 app:layout_constraintBottom_toTopOf="@id/item_stock_expired"
                 app:layout_constraintStart_toStartOf="@id/item_stock_name">
 
                 <TextView
                     android:text="@string/txt_inStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="?attr/colorOnSurface"
                     android:layout_marginEnd="8dp"/>
 

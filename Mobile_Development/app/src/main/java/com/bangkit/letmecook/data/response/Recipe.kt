@@ -5,14 +5,14 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 @Parcelize
-data class Recipes(
+data class Recipe(
 
-	@field:SerializedName("Recipes")
-	val recipes: List<RecipesItem>
+	@field:SerializedName("Recipe")
+	val recipe: List<RecipeItem>
 ) : Parcelable
 
 @Parcelize
-data class RecipesItem(
+data class RecipeItem(
 
 	@field:SerializedName("image")
 	val image: String,

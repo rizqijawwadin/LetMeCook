@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.stock.StockFragment">
 
-    <androidx.appcompat.widget.SearchView
+    <SearchView
         android:id="@+id/search_stock"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_stock" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_event"
+        android:id="@+id/list_item_stock"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

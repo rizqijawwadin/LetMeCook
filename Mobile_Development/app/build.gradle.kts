@@ -71,10 +71,13 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.storage.ktx)
+    implementation (libs.firebase.database.ktx)
     
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.viewpager2)
+    implementation (libs.androidx.appcompat)
+
 }

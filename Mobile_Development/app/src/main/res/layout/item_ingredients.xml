@@ -7,10 +7,12 @@
     android:background="?android:selectableItemBackground">
 
     <CheckBox
-        android:id="@+id/checkbox_ingredient"
+        android:id="@+id/item_checkbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Ingredient Name"
-        android:textColor="@color/black" />
+        android:textColor="@color/black" >
+
+    </CheckBox>
 </LinearLayout>

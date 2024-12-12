@@ -1,30 +1,52 @@
 package com.bangkit.letmecook.data.retrofit
 
 import com.bangkit.letmecook.data.response.Article
-import com.bangkit.letmecook.data.response.Category
-import com.bangkit.letmecook.data.response.Recipes
+import com.bangkit.letmecook.data.response.RecipeResponse
+import com.bangkit.letmecook.local.entity.InventoryEntity
+import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("articles")
     suspend fun getArticles(): Response<List<Article>>
 
-    @POST("/predict")
-    suspend fun generateRecipes(): Response<List<Recipes>>
+    @GET("recipe/{id}")
+    fun getDetailRecipes(
 
-    @GET("/recipe-category")
-    suspend fun getRecipeCategories(): Response<List<Category>>
+    )
 
-    @POST("/categories")
-    suspend fun getRecipesByCategory(@Body category: String): Response<List<Recipes>>
+    @POST("predict")
+    fun generateRecipes(@Body requestBody: RequestBody): Call<List<RecipeResponse>>
 
-    @GET("/recipe-details/{id}")
-    suspend fun getRecipeDetails(@Path("id") recipeId: String): Response<Recipes>
+    @GET("inventories/{user_id}")
+    fun getUserInventory(
+        @Path("user_id") userId: Int
+    ): Call<List<InventoryEntity>>
+
+    @PUT("update-inventory/{id}")
+    fun addInventory(
+        @Body newInventory: InventoryEntity
+    ): Call<Void>
+
+    @DELETE("delete-inventory/{id}")
+    fun deleteInventoryItem(
+        @Path("id") inventoryId: Int
+    ): Call<Void>
+
+    @GET("search-inventory")
+    fun searchInventory(
+        @Query("query") query: String
+    ): Call<List<InventoryEntity>>
+
 
 }
 
