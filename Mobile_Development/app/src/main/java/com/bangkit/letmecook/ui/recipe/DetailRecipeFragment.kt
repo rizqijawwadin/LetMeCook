@@ -1,60 +1,96 @@
 package com.bangkit.letmecook.ui.recipe
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bangkit.letmecook.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.bangkit.letmecook.data.response.RecipeDetail
+import com.bangkit.letmecook.data.response.RecipeResponse
+import com.bangkit.letmecook.data.retrofit.ApiConfig
+import com.bangkit.letmecook.databinding.FragmentDetailRecipeBinding
+import com.bumptech.glide.Glide
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailRecipeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DetailRecipeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentDetailRecipeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_recipe, container, false)
+    ): View {
+        _binding = FragmentDetailRecipeBinding.inflate(inflater, container, false)
+
+        val args = DetailRecipeFragmentArgs.fromBundle(requireArguments())
+        val recipeId = args.recipeId
+
+        fetchRecipeDetails(recipeId)
+
+        binding.btnLetMeCook.setOnClickListener {
+            showToast("Cooked!")
+        }
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailRecipeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DetailRecipeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun fetchRecipeDetails(recipeId: Int) {
+        binding.progressBarDetailRecipes.visibility = View.VISIBLE
+        ApiConfig.getApiService().getRecipeDetails(recipeId)
+            .enqueue(object : Callback<RecipeDetail> {
+                override fun onResponse(
+                    call: Call<RecipeDetail>,
+
+                    response: Response<RecipeDetail>
+
+                ) {
+                    binding.progressBarDetailRecipes.visibility = View.GONE
+                    if (response.isSuccessful) {
+                        val recipeDetail = response.body()
+                        if (recipeDetail != null) {
+                            Log.d("DetailRecipe", "Recipe Detail: $recipeDetail")
+                            bindRecipeDetails(recipeDetail)
+                        } else {
+                            showToast("Recipe details not found")
+                        }
+                    } else {
+                        showToast("Failed to fetch details: ${response.message()}")
+                    }
                 }
-            }
+
+                override fun onFailure(call: Call<RecipeDetail>, t: Throwable) {
+                    binding.progressBarDetailRecipes.visibility = View.GONE
+                    showToast("Error: ${t.message}")
+                }
+            })
+    }
+
+    private fun bindRecipeDetails(recipe: RecipeDetail) {
+        binding.recipeName.text = recipe.nameRecipe
+        binding.cookingTime.text = "Cooking Time: ${recipe.prepTime}"
+        binding.serves.text = "Serves: ${recipe.serves}"
+        binding.ingredients.text = "ingredients: ${recipe.ingredients}"
+        binding.tvCookingSteps.text = "Cooking Method: ${recipe.cookingMethod}"
+
+        Glide.with(this)
+            .load(recipe.image)
+            .placeholder(android.R.drawable.progress_indeterminate_horizontal)
+            .error(android.R.drawable.stat_notify_error)
+            .into(binding.recipeImage)
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

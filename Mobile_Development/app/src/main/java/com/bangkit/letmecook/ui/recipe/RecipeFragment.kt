@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bangkit.letmecook.R
 import com.bangkit.letmecook.data.response.RecipeResponse
 import com.bangkit.letmecook.data.response.RequestData
 import com.bangkit.letmecook.data.retrofit.ApiConfig
@@ -85,12 +88,23 @@ class RecipeFragment : Fragment() {
     }
 
     private fun setupRecipeRecyclerView() {
-        recipeListAdapter = RecipeListAdapter(emptyList())
+        recipeListAdapter = RecipeListAdapter(emptyList()) { recipe ->
+            navigateToDetailRecipe(recipe.recipe_id) // Navigasi dengan ID resep
+        }
+
         binding.rvRecipes.apply {
             adapter = recipeListAdapter
             layoutManager = LinearLayoutManager(context)
         }
     }
+
+    private fun navigateToDetailRecipe(recipeId: Int) {
+        val action = RecipeFragmentDirections.actionNavigationRecipeToDetailRecipeFragment(recipeId)
+        findNavController().navigate(action)
+    }
+
+
+
 
     private fun setupGenerateButton() {
         binding.btnGenerateRecipe.setOnClickListener {

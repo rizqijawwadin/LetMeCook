@@ -1,6 +1,8 @@
 package com.bangkit.letmecook.data.retrofit
 
 import com.bangkit.letmecook.data.response.Article
+import com.bangkit.letmecook.data.response.Recipe
+import com.bangkit.letmecook.data.response.RecipeDetail
 import com.bangkit.letmecook.data.response.RecipeResponse
 import com.bangkit.letmecook.local.entity.InventoryEntity
 import okhttp3.RequestBody
@@ -19,13 +21,11 @@ interface ApiService {
     @GET("articles")
     suspend fun getArticles(): Response<List<Article>>
 
-    @GET("recipe/{id}")
-    fun getDetailRecipes(
-
-    )
-
     @POST("predict")
     fun generateRecipes(@Body requestBody: RequestBody): Call<List<RecipeResponse>>
+
+    @GET("recipe-details/{id}")
+    fun getRecipeDetails(@Path("id") recipeId: Int): Call<RecipeDetail>
 
     @GET("inventories/{user_id}")
     fun getUserInventory(
